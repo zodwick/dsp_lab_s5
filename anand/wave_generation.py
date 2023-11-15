@@ -6,54 +6,62 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.pyplot as plt
 
-#discrete time
+# #discrete time
 
-t = np.arange(-5,5,1)
-x=np.zeros(len(t))
-x[len(t)//2]=1
+# t = np.arange(-5,5,1)
+# x=np.zeros(len(t))
+# x[len(t)//2]=1
 
-plt.stem(t,x)
-plt.show()
+# plt.stem(t,x)
+# plt.show()
 
-# continuous time
+# # continuous time
 
-t = np.arange(-5,5,0.01)
-x=np.zeros(len(t))
-x[len(t)//2]=1
-plt.plot(t,x)
-plt.show()
+# t = np.arange(-5,5,0.01)
+# x=np.zeros(len(t))
+# x[len(t)//2]=1
+# plt.plot(t,x)
+# plt.show()
 
 
-# 2. Unit pulse signal
+# # 2. Unit pulse signal
 
-t= np.arange(-5,5,0.01)
+# t= np.arange(-5,5,0.01)
 
-width = eval(input("Enter width of pulse: "))
-x=np.zeros(len(t))
+# width = eval(input("Enter width of pulse: "))
+# x=np.zeros(len(t))
 
-for i in range(len(t)):
-    if abs(t[i]) <= width/2:
-        x[i]=1
+# for i in range(len(t)):
+#     if abs(t[i]) <= width/2:
+#         x[i]=1
         
-plt.plot(t,x)
+# plt.plot(t,x)
 
-plt.show()
+# plt.show()
 
-# dt
+# # dt
 
-t=np.arange(-5,5,.2)
-width = eval(input("Enter width of pulse: "))
-x=np.zeros(len(t))
-for i in range(len(t)):
-    if abs(t[i]) <= width/2:
-        x[i]=1
+# t=np.arange(-5,5,.2)
+# width = eval(input("Enter width of pulse: "))
+# x=np.zeros(len(t))
+# for i in range(len(t)):
+#     if abs(t[i]) <= width/2:
+#         x[i]=1
         
-plt.stem(t,x)
-plt.show()
+# plt.stem(t,x)
+# plt.show()
 
 # 3. Unit ramp signal
-
+# t=np.arange(-5,5,1)
+# x=np.zeros(len(t))
+# for i in range(len(t)):
+#     if t[i]>=0:
+#         x[i]=t[i]
+# plt.stem(t,x)
+# plt.show()
 # 4. Bipolar pulse
+
+
 # 5. Triangular signal
 
 
