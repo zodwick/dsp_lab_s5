@@ -18,4 +18,8 @@ time = np.arange(0,len(x),1)
 
 import matplotlib.pyplot as plt
 plt.stem(time,[abs(i) for i in dft(x)])
+
+
+plt.stem(time,[np.angle(i) for i in dft(x)])
+
 plt.show()
