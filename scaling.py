@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 f=int(input("enter the frequency:"))
-t0=int(input("enter the shifting:"))
+t0=int(input("enter the shifting factor:"))
 t=np.arange(0,5,0.0001)
 T=np.arange(0+t0,1+t0,0.0001)
 x=np.sin(2*np.pi*f*t)
