@@ -24,6 +24,3 @@ x2=[cmath.phase(k) for k in y]
 y2=np.arange(0,N,1)
 plt.stem(y2,x2)
 plt.show()
-
-
-
