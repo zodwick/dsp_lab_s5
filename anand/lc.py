@@ -15,15 +15,15 @@ def linear_convolution(x, h):
     for i in range(len_y):
         for j in range(len_x):
             if i - j >= 0 and i - j < len_h:
-                print(x[j], h[i-j],sep="*")
+                # print(x[j], h[i-j],sep="*")
                 y[i] += x[j] * h[i-j]
-        print("....................")
+        # print("....................")
 
     return y
 
 # Example usage:
 x = np.array([1, 2,3])
-h = np.array([-1,-2,-3])
+h = np.array([-1,-2,-3,4])
 result = linear_convolution(x, h)
 
 print("Input sequence x:", x)

@@ -15,10 +15,13 @@ def fft(x):
     k = len(x)
     # Twiddle matrix
     twiddle = np.ones(k, dtype="complex")
-    for i in range(1, k):
+    print(twiddle)
+    for i in range(1, k): # we start from 1 as the 0th row is always one and has been done during initailaising
         for j in range(k):
             num = np.exp(complex(-1j) * 2 * np.pi * i * j * float(1 / k))
             twiddle = np.append(twiddle, num)
+            print(twiddle)
+
     
     twiddle.shape = (k, k)
 

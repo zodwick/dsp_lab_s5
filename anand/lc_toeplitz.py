@@ -17,6 +17,7 @@ toeplitz = np.zeros((column, row))
 
 for i in range(row):
     toeplitz[:, i] = np.roll(h, i)
+    print(np.roll(h, i))
 
 print("Toeplitz Matrix:")
 print(toeplitz)

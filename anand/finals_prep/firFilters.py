@@ -92,7 +92,7 @@ def rectangular(n, N):
 
 
 def hanning(n, N):
-    x = (1-np.cos(2*np.pi*n/(N-1)))/2
+    x = 0.5-0.5*np.cos(2*np.pi*n/(N-1))
     return x
 
 
@@ -106,24 +106,34 @@ def mfreq(b):
     db = 20*np.log10(abs(h))
     plt.subplot(2, 1, 1)
     plt.plot(w, db)
-    plt.subplot(2, 1, 2)
-    hphase = np.unwrap(np.arctan2(np.imag(h), np.real(h)))
-    plt.plot(w, hphase)
+    # plt.subplot(2, 1, 2)
+    # hphase = np.unwrap(np.arctan2(np.imag(h), np.real(h)))
+    # plt.plot(w, hphase)
     plt.show()
 
 
 def lpf(N, wc, win):
     a = (N-1)/2
     print(a)
-    # h = [wc/np.pi if i == a else np.sin(wc*(i-a))/((i-a)*np.pi) for i in
-    #      np.arange(0, N)]
-    h = [1 if i == a else -wc/np.pi * np.sinc(wc*(i-a)/np.pi) for i in  np.arange(0, N)]
+    h = [wc/np.pi if i == a else np.sin(wc*(i-a))/((i-a)*np.pi)
+         for i in np.arange(0, N)]
 
+    # plt.plot(h)
+    # plt.show()
+    windows = [hanning, hamming, triangular, rectangular]
+    h_ = h*windows[win-1](np.arange(0, N), N)
+
+    mfreq(h_)
+
+
+def hpf(N, wc, win):
+    a = (N-1)/2
+    h = [wc/np.pi if i == a else (np.sin((i-a)*np.pi)-np.sin((i-a)*wc))/(np.pi*(i-a)) for
+         i in np.arange(0, N)]
     plt.plot(h)
     plt.show()
     # windows = [hanning, hamming, triangular, rectangular]
     # h_ = h*windows[win-1](np.arange(0, N), N)
-
     # mfreq(h_)
 
 
@@ -131,8 +141,11 @@ def lpf(N, wc, win):
 # wc = float(input("Enter wc: "))
 # win = int(
 #     input("Choose window\n1. Hanning\n2. Hamming\n3.Triangular\n4.Rectangular\n"))
-# lpf(N, wc, win)
+# # lpf(N, wc, win)
+# hpf(N, wc, win)
 
+for i in range(30, 35):
+    hpf(i, 0.01, 1)
 
-for i in range(30,35):
-    lpf(i, 0.01, 1)
+# for i in range(30, 35):
+#     lpf(i, 0.01, 1)
