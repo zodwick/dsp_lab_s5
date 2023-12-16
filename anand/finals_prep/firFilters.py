@@ -100,7 +100,7 @@ def hamming(n, N):
     x = 0.54-0.46*np.cos(2*np.pi*n/(N-1))
     return x
 
-
+    
 def mfreq(b):
     w, h = sp.freqz(b, 1)
     db = 20*np.log10(abs(h))
